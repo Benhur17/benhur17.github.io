@@ -1,0 +1,48 @@
+const projects = [
+  {
+    id: 'project-1',
+    title: 'DevSync',
+    tagline: 'Real-time collaborative IDE',
+    problem: 'Developers lose context switching between code editors and communication tools.',
+    solution: 'Built a browser-based IDE with real-time collaboration, shared terminals, and integrated voice chat.',
+    stack: ['React', 'WebRTC', 'Node.js', 'Redis', 'Monaco Editor'],
+    demo: '#',
+    github: '#',
+    year: '2025',
+  },
+  {
+    id: 'project-2',
+    title: 'NeuralDB',
+    tagline: 'AI-powered database query engine',
+    problem: 'Non-technical stakeholders struggle to extract insights from complex databases.',
+    solution: 'Created a natural language interface that converts plain English to optimized SQL queries with explanation.',
+    stack: ['Python', 'FastAPI', 'OpenAI', 'PostgreSQL', 'React'],
+    demo: '#',
+    github: '#',
+    year: '2025',
+  },
+  {
+    id: 'project-3',
+    title: 'StackPulse',
+    tagline: 'Developer analytics dashboard',
+    problem: 'Engineering teams lack visibility into codebase health and developer productivity patterns.',
+    solution: 'Built an analytics platform that aggregates git data, CI/CD metrics, and code quality scores into actionable insights.',
+    stack: ['Next.js', 'D3.js', 'GraphQL', 'ClickHouse', 'Docker'],
+    demo: '#',
+    github: '#',
+    year: '2024',
+  },
+  {
+    id: 'project-4',
+    title: 'FormForge',
+    tagline: 'Intelligent form builder SDK',
+    problem: 'Building complex, multi-step forms with validation is repetitive and error-prone.',
+    solution: 'Developed a schema-driven form SDK with conditional logic, async validation, and accessibility built in.',
+    stack: ['TypeScript', 'React', 'Zod', 'Storybook', 'npm'],
+    demo: '#',
+    github: '#',
+    year: '2024',
+  },
+]
+
+export default projects
