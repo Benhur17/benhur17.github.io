@@ -229,38 +229,41 @@ export default function Terminal() {
   const focusInput = () => inputRef.current?.focus()
 
   return (
-    <section id="terminal" className="py-24 sm:py-32">
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true, margin: '-80px' }}
-          className="max-w-2xl mx-auto"
-        >
+  <section
+    id="terminal"
+    className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+  >
+    <div className="w-full max-w-5xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true }}
+        className="w-full"
+      >
         {/* Terminal window */}
         <div
-          className="rounded-xl border border-border bg-surface overflow-hidden shadow-2xl shadow-black/50"
+          className="rounded-2xl border border-border bg-surface overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
           onClick={focusInput}
         >
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border bg-surface">
+          <div className="flex items-center gap-2 px-5 py-4 border-b border-border bg-surface">
             <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/80" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]/80" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/80" />
+              <div className="w-3 h-3 rounded-full bg-[#ff5f57]/80" />
+              <div className="w-3 h-3 rounded-full bg-[#febc2e]/80" />
+              <div className="w-3 h-3 rounded-full bg-[#28c840]/80" />
             </div>
-            <span className="flex-1 text-center text-[11px] text-secondary/50 font-mono">
+
+            <span className="flex-1 text-center text-xs text-secondary/50 font-mono tracking-wide">
               terminal
             </span>
-            {/* Sound toggle */}
+
             <button
               onClick={(e) => {
                 e.stopPropagation()
                 setSoundEnabled(!soundEnabled)
               }}
-              className="text-[11px] text-secondary/40 hover:text-accent transition-colors font-mono px-1.5 py-0.5 rounded hover:bg-accent/5"
-              title={soundEnabled ? 'Mute typing sound' : 'Enable typing sound'}
+              className="text-xs text-secondary/40 hover:text-accent transition-colors font-mono px-2 py-1 rounded hover:bg-accent/5"
             >
               {soundEnabled ? '♪ on' : '♪ off'}
             </button>
@@ -269,7 +272,15 @@ export default function Terminal() {
           {/* Terminal body */}
           <div
             ref={scrollRef}
-            className="p-5 sm:p-6 h-80 sm:h-104 overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text space-y-1"
+            className="
+              p-5 sm:p-6 md:p-7
+              h-[420px] sm:h-[500px] md:h-[560px]
+              overflow-y-auto
+              font-mono text-[13px] sm:text-[14px]
+              leading-relaxed
+              cursor-text
+              space-y-1
+            "
           >
             {history.map((entry, i) => (
               <div key={i}>
@@ -279,12 +290,14 @@ export default function Terminal() {
                     <span className="text-primary/90">{entry.text}</span>
                   </div>
                 )}
+
                 {entry.type === 'output' &&
                   entry.lines.map((line, j) => (
                     <div key={j} className="text-secondary/80 whitespace-pre">
                       {line || '\u00A0'}
                     </div>
                   ))}
+
                 {entry.type === 'system' &&
                   entry.lines.map((line, j) => (
                     <div key={j} className="text-secondary/50">
@@ -294,14 +307,13 @@ export default function Terminal() {
               </div>
             ))}
 
-            {/* Animating lines */}
             <AnimatePresence>
               {animatingLines.map((line, i) => (
                 <motion.div
                   key={`anim-${i}`}
-                  initial={{ opacity: 0, x: -3 }}
+                  initial={{ opacity: 0, x: -4 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.12 }}
+                  transition={{ duration: 0.15 }}
                   className="text-secondary/80 whitespace-pre"
                 >
                   {line || '\u00A0'}
@@ -309,9 +321,8 @@ export default function Terminal() {
               ))}
             </AnimatePresence>
 
-            {/* Input line */}
             {!isAnimating && (
-              <form onSubmit={handleSubmit} className="flex gap-2 items-center mt-2">
+              <form onSubmit={handleSubmit} className="flex gap-2 items-center mt-3">
                 <span className="text-accent/70 shrink-0">❯</span>
                 <input
                   ref={inputRef}
@@ -319,22 +330,21 @@ export default function Terminal() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="flex-1 bg-transparent outline-none text-primary/90 caret-accent font-mono text-[13px]"
+                  className="flex-1 bg-transparent outline-none text-primary/90 caret-accent font-mono"
                   autoFocus
                   spellCheck={false}
                   autoComplete="off"
-                  aria-label="Terminal input"
                 />
               </form>
             )}
           </div>
         </div>
 
-        <p className="text-center text-secondary/25 text-[11px] font-mono mt-6 tracking-wider">
+        <p className="text-center text-secondary/25 text-[11px] font-mono mt-6 tracking-widest">
           try "help" to explore
         </p>
-        </motion.div>
-      </div>
-    </section>
-  )
+      </motion.div>
+    </div>
+  </section>
+)
 }
