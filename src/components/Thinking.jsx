@@ -20,8 +20,8 @@ const fadeUp = {
 
 export default function Thinking() {
   return (
-    <section id="skills" className="py-24 sm:py-36 px-6 sm:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section id="skills" className="py-24 sm:py-32">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-8">
         {/* Section header */}
         <motion.div
           variants={fadeUp}
@@ -29,15 +29,14 @@ export default function Thinking() {
           whileInView="visible"
           custom={0}
           viewport={{ once: true, margin: '-80px' }}
-          className="flex items-center gap-4 mb-14"
+          className="text-center mb-16"
         >
-          <span className="text-xs font-mono text-accent/60 tracking-wider">03</span>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Thinking</h2>
-          <div className="flex-1 h-px bg-border" />
+          <span className="text-xs font-mono text-accent/60 tracking-widest">03</span>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight mt-2">Thinking</h2>
         </motion.div>
 
         {/* Thoughts */}
-        <div className="space-y-0">
+        <div className="max-w-xl mx-auto space-y-1">
           {thoughts.map((thought, i) => (
             <motion.div
               key={i}
@@ -46,12 +45,12 @@ export default function Thinking() {
               whileInView="visible"
               custom={i + 1}
               viewport={{ once: true, margin: '-40px' }}
-              className="group flex items-center gap-4 py-4 border-b border-border/40 hover:border-accent/25 transition-colors"
+              className="group flex items-center gap-5 py-5 border-b border-border/30 hover:border-accent/20 transition-colors duration-300"
             >
-              <span className="text-accent/30 font-mono text-[11px] w-6 shrink-0 group-hover:text-accent/70 transition-colors">
+              <span className="text-accent/25 font-mono text-[11px] w-6 shrink-0 text-right group-hover:text-accent/60 transition-colors duration-300">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span className="text-[17px] sm:text-lg text-secondary/80 group-hover:text-primary transition-colors leading-snug">
+              <span className="text-sm sm:text-base lg:text-lg text-secondary/70 group-hover:text-primary/90 transition-colors duration-300 leading-snug">
                 "{thought}"
               </span>
             </motion.div>

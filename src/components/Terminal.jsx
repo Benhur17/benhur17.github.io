@@ -229,27 +229,28 @@ export default function Terminal() {
   const focusInput = () => inputRef.current?.focus()
 
   return (
-    <section id="terminal" className="py-20 sm:py-32 px-6 sm:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true, margin: '-80px' }}
-        className="max-w-2xl mx-auto"
-      >
+    <section id="terminal" className="py-24 sm:py-32">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="max-w-2xl mx-auto"
+        >
         {/* Terminal window */}
         <div
-          className="rounded-xl border border-border bg-surface overflow-hidden shadow-2xl shadow-black/60"
+          className="rounded-xl border border-border bg-surface overflow-hidden shadow-2xl shadow-black/50"
           onClick={focusInput}
         >
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface">
+          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border bg-surface">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/80" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]/80" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/80" />
             </div>
-            <span className="flex-1 text-center text-[11px] text-secondary/60 font-mono">
+            <span className="flex-1 text-center text-[11px] text-secondary/50 font-mono">
               terminal
             </span>
             {/* Sound toggle */}
@@ -268,7 +269,7 @@ export default function Terminal() {
           {/* Terminal body */}
           <div
             ref={scrollRef}
-            className="p-5 sm:p-6 h-72 sm:h-80 overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text space-y-1"
+            className="p-5 sm:p-6 h-80 sm:h-104 overflow-y-auto font-mono text-[13px] leading-relaxed cursor-text space-y-1"
           >
             {history.map((entry, i) => (
               <div key={i}>
@@ -329,10 +330,11 @@ export default function Terminal() {
           </div>
         </div>
 
-        <p className="text-center text-secondary/30 text-[11px] font-mono mt-5 tracking-wider">
+        <p className="text-center text-secondary/25 text-[11px] font-mono mt-6 tracking-wider">
           try "help" to explore
         </p>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }

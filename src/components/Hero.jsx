@@ -76,61 +76,71 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-svh flex items-center justify-center px-6 sm:px-8"
+      className="relative min-h-svh flex items-center justify-center"
     >
       {/* Ambient gradient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 sm:w-175 sm:h-175 rounded-full bg-accent/3 blur-[150px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 sm:w-175 sm:h-175 rounded-full bg-accent/3 blur-[150px]" />
       </div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="relative z-10 text-center w-full max-w-2xl mx-auto"
-      >
-        {/* Status pill */}
-        <motion.div variants={item} className="flex justify-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-[11px] text-secondary font-mono tracking-widest uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Available for work
-          </div>
-        </motion.div>
-
-        {/* Name */}
-        <motion.h1
-          variants={item}
-          className="text-[clamp(3rem,10vw,7rem)] font-bold tracking-tighter leading-[0.95] mb-8"
-        >
-          <span className="text-primary">Ben</span>
-          <span className="text-accent">Hur</span>
-        </motion.h1>
-
-        {/* Typing effect */}
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-8 w-full">
         <motion.div
-          variants={item}
-          className="h-8 sm:h-10 flex items-center justify-center font-mono text-base sm:text-lg text-secondary"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 text-center max-w-3xl mx-auto"
         >
-          <span className="text-accent/50 mr-2">&gt;</span>
-          <span className="text-secondary/90">{text}</span>
-          <span
-            className={`inline-block w-0.5 h-4.5 sm:h-5 bg-accent ml-1 transition-opacity duration-100 ${
-              cursor ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        </motion.div>
+          {/* Status pill */}
+          <motion.div variants={item} className="flex justify-center mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-surface text-[11px] text-secondary font-mono tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              Available for work
+            </div>
+          </motion.div>
 
-        {/* Scroll hint */}
-        <motion.div variants={item} className="mt-20 sm:mt-28">
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="text-secondary/30 text-[10px] font-mono tracking-[0.3em] uppercase"
+          {/* Name */}
+          <motion.h1
+            variants={item}
+            className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-6"
           >
-            scroll
+            <span className="text-primary">Ben</span>
+            <span className="text-accent">Hur</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={item}
+            className="text-sm sm:text-base text-secondary/50 font-light tracking-wide mb-6"
+          >
+            CS Engineer · Systems Thinker · Builder
+          </motion.p>
+
+          {/* Typing effect */}
+          <motion.div
+            variants={item}
+            className="h-8 sm:h-10 flex items-center justify-center font-mono text-sm sm:text-base lg:text-lg text-secondary"
+          >
+            <span className="text-accent/50 mr-2">&gt;</span>
+            <span className="text-secondary/90">{text}</span>
+            <span
+              className={`inline-block w-0.5 h-4 sm:h-5 bg-accent ml-1 transition-opacity duration-100 ${
+                cursor ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          </motion.div>
+
+          {/* Scroll hint */}
+          <motion.div variants={item} className="mt-24 sm:mt-28">
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-secondary/30 text-[10px] font-mono tracking-[0.3em] uppercase"
+            >
+              scroll
+            </motion.div>
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

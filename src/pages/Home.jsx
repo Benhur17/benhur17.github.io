@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import Hero from '../components/Hero'
-import Terminal from '../components/Terminal'
 import About from '../components/About'
 import Projects from '../components/Projects'
+import Terminal from '../components/Terminal'
 import Thinking from '../components/Thinking'
 import Contact from '../components/Contact'
 
@@ -12,6 +12,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
+      className="overflow-x-hidden"
     >
       <Hero />
       <Terminal />

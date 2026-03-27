@@ -29,6 +29,7 @@ export default function CursorGlow() {
         left: pos.x,
         top: pos.y,
         opacity: visible ? 1 : 0,
+        transition: 'opacity 0.3s ease, transform 0.1s ease',
       }}
     />
   )

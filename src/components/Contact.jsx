@@ -30,8 +30,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 sm:py-36 px-6 sm:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-24 sm:py-32">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-8">
         {/* Section header */}
         <motion.div
           variants={fadeUp}
@@ -39,11 +39,10 @@ export default function Contact() {
           whileInView="visible"
           custom={0}
           viewport={{ once: true, margin: '-80px' }}
-          className="flex items-center gap-4 mb-14"
+          className="text-center mb-16"
         >
-          <span className="text-xs font-mono text-accent/60 tracking-wider">04</span>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Contact</h2>
-          <div className="flex-1 h-px bg-border" />
+          <span className="text-xs font-mono text-accent/60 tracking-widest">04</span>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight mt-2">Contact</h2>
         </motion.div>
 
         <motion.p
@@ -52,13 +51,13 @@ export default function Contact() {
           whileInView="visible"
           custom={1}
           viewport={{ once: true }}
-          className="text-secondary/70 mb-10 text-lg"
+          className="text-secondary/60 mb-12 text-base sm:text-lg text-center max-w-md mx-auto"
         >
           Let's build something together.
         </motion.p>
 
         {/* Links */}
-        <div className="space-y-3">
+        <div className="max-w-md mx-auto space-y-4">
           {links.map((link, i) => (
             <motion.div
               key={link.label}
@@ -67,18 +66,18 @@ export default function Contact() {
               whileInView="visible"
               custom={i + 2}
               viewport={{ once: true }}
-              className="group flex items-center justify-between py-4 px-5 rounded-xl border border-border/60 bg-surface
-                         hover:border-accent/25 transition-all duration-300"
+              className="group flex items-center justify-between py-4 px-5 sm:px-6 rounded-xl border border-border/50 bg-surface
+                         hover:border-accent/20 transition-all duration-300"
             >
-              <div className="flex items-center gap-4 min-w-0">
-                <span className="text-[10px] font-mono text-accent/50 tracking-widest w-16 shrink-0 uppercase">
+              <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                <span className="text-[10px] font-mono text-accent/50 tracking-widest w-14 sm:w-16 shrink-0 uppercase">
                   {link.label}
                 </span>
                 <a
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary/80 hover:text-accent transition-colors text-sm sm:text-base truncate"
+                  className="text-primary/80 hover:text-accent transition-colors text-sm truncate"
                 >
                   {link.value}
                 </a>
@@ -115,9 +114,9 @@ export default function Contact() {
           whileInView="visible"
           custom={6}
           viewport={{ once: true }}
-          className="mt-28 pt-8 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-28 sm:mt-32 pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
-          <span className="text-[11px] text-secondary/30 font-mono">
+          <span className="text-[11px] text-secondary/25 font-mono">
             Built with precision & caffeine
           </span>
           <span className="text-[11px] text-secondary/20 font-mono">
